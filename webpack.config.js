@@ -57,6 +57,9 @@ module.exports = function (env) {
                 },
             ]
         },
+	loaders: [
+   	 { test: /\.js$/, loader: 'babel', query: {compact: false} }
+	],
         plugins: [
             new ExtractTextPlugin("styles.css"),
             new webpack.IgnorePlugin(/regenerator|nodent|js-beautify/, /ajv/),
