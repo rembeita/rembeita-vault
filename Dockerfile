@@ -8,28 +8,7 @@ RUN rpm -ivh https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el
 RUN yum install -y yarn 
 RUN mkdir -p /app
 COPY . /app
-#COPY launchpoint.sh /
-#RUN cd /app
 WORKDIR /app
 RUN npm install
-#COPY bin/entrypoint.sh 
-#CMD ["./launchpoint.sh"]
-#FROM node:8.1.4-alpine
-#
-#MAINTAINER Vault-UI Contributors
-#
-#WORKDIR /app
-#COPY . .
-#
-#RUN yarn install --pure-lockfile --silent && \
-#    yarn run build-web && \
-#    yarn install --silent --production && \
-#    yarn check --verify-tree --production && \
-#    yarn global add nodemon && \
-#    yarn cache clean && \
-#    rm -f /root/.electron/*
-#
-#EXPOSE 8000
-#
-#ENTRYPOINT ["./bin/entrypoint.sh"]
-#CMD ["start_app"]
+
+CMD ["./app/launchpoint.sh"]
